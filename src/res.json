@@ -1,0 +1,126 @@
+
+
+{
+	"name": "Terron M. Johnson",
+	"email": "tmj72386@gmail.com",
+	"phone": "718-310-9263",
+	"image": "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/17884270_10212829729522235_8399108293012042014_n.jpg?oh=f5790cacd8624c4a5c88a2877a2406a5&oe=5ADFF8A0",
+	"website": "tmjohnson.tech",
+	"twitter": "@abhaytalreja",
+	"twitterURL": "https://twitter.com/abhaytalreja",
+	"experiences" : [
+		{
+			"title" : "SQL Developer",
+			"period": "2016 - Present",
+			"company": "Startup Hubs, San Francisco",
+			"companyURL": "http://programmingbuddy.club",
+			"details": "Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo."
+		},
+		{
+			"title" : "Web & Database Administrator",
+			"period": "2015 - 2016",
+			"company": "New York County Lawyers Association",
+			"companyURL": "www.nycla.org",
+			"details": "Developed Fullstack web applications"
+        },
+        
+        {
+			"title" : "Technical Marketer",
+			"period": "2013 - 2015",
+			"company": "DSD Ventures",
+			"companyURL": "www.keepamerica.com",
+			"details": "Developed Fullstack web applications"
+		}
+	],
+	"projects": [
+		{
+			"name":"Velocity",
+			"url": "http://programmingbuddy.club",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"DevStudio",
+			"url": "http://programmingbuddy.club",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"Tempo",
+			"url": "http://programmingbuddy.club",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"Atom",
+			"url": "http://programmingbuddy.club",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		},
+		{
+			"name":"Delta",
+			"url": "http://programmingbuddy.club",
+			"detail": "A responsive website template designed to help startups promote, market and sell their products."
+		}
+	],
+	"skills": [
+		{
+			"name": "Database Development",
+			"percent": "98%"
+		},
+		{
+			"name": "BI Development",
+			"percent": "90%"
+		},
+		{
+			"name": "ETL",
+			"percent": "90%"
+		},
+		{
+			"name": "Database Performance Tuning",
+			"percent": "99%"
+		},
+		{
+			"name": "Javascript (React, Node, JQuery)",
+			"percent": "90%"
+		},
+		{
+			"name": "Report Development",
+			"percent": "85%"
+		}
+	],
+	"education": [
+		{
+			"degree": "MSc in Computer Science",
+			"university": "University of London",
+			"period": "2011 - 2012"
+		},
+		{
+			"degree": "BSc in Applied Mathematics",
+			"university": "Bristol University",
+			"period": "2007 - 2011"
+		}
+	],
+	"languages": [
+		{
+			"name":"English",
+			"details": "Native"
+		},
+		{
+			"name":"French",
+			"details": "Professional"
+		},
+		{
+			"name":"Spanish",
+			"details": "Professional"
+		}
+	],
+	"interests": [
+		"Climbing",
+		"Snowboarding",
+		"Cooking",
+		"Coding"
+	]
+}
+
+
+
+
+
+
