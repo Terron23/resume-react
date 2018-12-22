@@ -19,7 +19,7 @@ class App extends Component {
 
 
     componentDidMount() {
-        axios.get("/resume1")
+        axios.get("http://localhost:3001/resume1")
         .then( (response) => {
            
             let data = response.data
@@ -139,14 +139,14 @@ arr2.push(<Skills item ={item} key ={i}/>)
                 <h2 className="section-title"><i className="fa fa-user"></i>Career Profile</h2>
                 <div className="summary">
                     <p>Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can <a href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers/" target="_blank">download this free resume/CV template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
-                    {this.renderProjects()}
+                  
                 </div>
             </section>
             
             <section className="section experiences-section">
                 <h2 className="section-title"><i className="fa fa-briefcase"></i>Experiences</h2>
                
-              
+                {this.renderExperiences()}
               
                 
             </section>
@@ -155,6 +155,7 @@ arr2.push(<Skills item ={item} key ={i}/>)
                 <h2 className="section-title"><i className="fa fa-archive"></i>Projects</h2>
                 <div className="intro">
                     <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+                {this.renderProjects()}
                 </div>
                
              

@@ -28,11 +28,13 @@ app.get('/', (req, res) => {
 app.post('/resume', (req, res) => {
     console.log('Hellooooooooooooooooo!')
     console.log(req.body)
-    db.collection('resume').updateOne(
+    db.collection('resume').update(
         { _id: "5c1da3edb6e571984fab2a20"},
        { $set:{
-        
-    name: req.body.name,
+           
+     name: req.body.name,
+     github: req.body.github,
+     tagline: req.body.tagline,
     email: req.body.email,
     phone: req.body.phone,
    image: req.body.image,
@@ -44,6 +46,7 @@ app.post('/resume', (req, res) => {
     company: req.body.company1,
     companyURL: req.body.companyurl1,
     description: req.body.description1,
+     
 },
 
 {
@@ -60,7 +63,7 @@ app.post('/resume', (req, res) => {
     companyURL: req.body.companyurl3,
 	description: req.body.description3,
 }], 
-    
+summary: req.body.summary, 
 projects: [{
     projectname : req.body.projectname1,
 	url :req.body.url1,
@@ -81,6 +84,8 @@ projects: [{
 
     }},
     { upsert: true })
+
+    res.redirect("http://localhost:3000/")
 })
 
 // app.get('/', (req, res) => {

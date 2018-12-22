@@ -24,6 +24,7 @@ class Form extends Component {
         .then( (response) => {
            
             let data = response.data
+            console.log("Main Test", data[0])
             this.setState({resume: data[0], url: window.location.pathname})
             console.log("Data", this.state.resume);
           })
@@ -47,15 +48,19 @@ class Form extends Component {
             data.push(work)
             console.log("More Data", data)
         })
+    
 
         for(var i=0; i<3; i++){
 
             experience1.push(
                 <div>
 <div className="form-group">
+
             <input type="text" className="form-control" onChange={this.handleChange} placeholder={`jobtitle${i+1}` } 
-            name={`jobtitle${i+1}`} defaultValue={this.state.resume.experience[i].jobtitle} />
-            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`period${i+1}`} name={`period${i+1}`} defaultValue={data[i].period} 
+            name={`jobtitle${i+1}`} defaultValue={this.state.resume.experience.length > 0 ?  this.state.resume.experience[i].jobtitle : ""} />
+            </div>
+            <div className="form-group">
+            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`period${i+1}`} name={`period${i+1}`} defaultValue={this.state.resume.experience.length > 0 ?  this.state.resume.experience[i].period : ""} 
             />
             </div>
             <div className="form-group">
@@ -64,7 +69,7 @@ class Form extends Component {
             onChange={this.handleChange} 
             placeholder={`company${i+1}`} 
             name={`company${i+1}`} 
-            defaultValue={this.state.resume.experience[i].company} 
+            defaultValue={this.state.resume.experience.length > 0 ?  this.state.resume.experience[i].company : ""} 
             />
             </div>
             <div className="form-group">
@@ -72,7 +77,7 @@ class Form extends Component {
             className="form-control" 
             onChange={this.handleChange} 
             placeholder={`companyurl${i+1}`} 
-            name={`companyurl${i+1}`} defaultValue={this.state.resume.experience[i].companyURL} 
+            name={`companyurl${i+1}`} defaultValue={this.state.resume.experience.length > 0  ? this.state.resume.experience[i].companyURL : ""} 
             />
             </div>
             <div className="form-group">
@@ -81,7 +86,7 @@ class Form extends Component {
             onChange={this.handleChange} 
             placeholder={`description${i+1}`} 
             name={`description${i+1}`} 
-            value={this.state.resume.experience[i].description}
+            defaultValue={this.state.resume.experience.length > 0 ? this.state.resume.experience[i].description : ""}
             ></ textarea>
             </div>
            </div>)
@@ -91,23 +96,31 @@ class Form extends Component {
         return experience1;
     }
 
-    renderSkillsInput =() => {
+    renderProjectsInput =() => {
         let skills =[]
+        let data = []
+        if (this.state.resume.projects) {
+            console.log("Test", this.state.resume.projects[0].company);
+            this.state.resume.projects.map((work, i) =>{
+                data.push(work)
+                console.log("More Data", data)
+            })
         for(var i=0; i<3; i++){
 
             skills.push(
                 <div>
 <div className="form-group">
-            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`projectname${i+1}`} name={`projectname${i+1}`} defaultValue=""/>
+            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`projectname${i+1}`} name={`projectname${i+1}`} defaultValue={this.state.resume.projects.length > 0 ? this.state.resume.projects[i].projectname : ""} />
 </div>
             <div className="form-group">
-            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`url${i+1}`} name={`url${i+1}`} defaultValue="" />
+            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`url${i+1}`} name={`url${i+1}`} defaultValue={this.state.resume.projects.length > 0 ? this.state.resume.projects[i].url : ""} />
             </div>
             <div className="form-group">
-            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`details${i+1}`} name={`details${i+1}`} defaultValue=""/>
+            <input type="text" className="form-control" onChange={this.handleChange} placeholder={`details${i+1}`} name={`details${i+1}`} defaultValue={this.state.resume.projects.length > 0 ? this.state.resume.projects[i].details : ""}/>
            </div>
            </div>)
         }
+    }
         console.log(skills)
         return skills;
     }
@@ -118,9 +131,17 @@ class Form extends Component {
           let {resume, url} = this.state
         
         return (
-     <div className="container">
+     <div className="container-fluid">
     <div className="col-md-3"> 
-    <form className="" action={`http://localhost:3001/resume`} method="POST">
+    <form className="inline" action={`http://localhost:3001/resume`} method="POST">
+    <div className="form-group">
+    <input className="form-control" onChange={this.handleChange}type="text" placeholder="summary" name="summary" 
+    defaultValue={ resume.summary}/>
+    </div>
+    <div className="form-group">
+    <input className="form-control" onChange={this.handleChange}type="text" placeholder="tag-line" name="tagline" 
+    defaultValue={ resume.tagline}/>
+    </div>
     <div className="form-group">
     <input className="form-control" onChange={this.handleChange}type="text" placeholder="name" name="name" defaultValue={resume.name}/>
     </div>
@@ -134,14 +155,18 @@ class Form extends Component {
     <input className="form-control" onChange={this.handleChange}type="text" placeholder="website" name="website" defaultValue={resume.website}/>
     </div>
     <div className="form-group">
-    <input className="form-control" onChange={this.handleChange}type="text" placeholder="linkdin" name="linkdin" defaultValue={resume.linkdin} />
+    <input className="form-control" onChange={this.handleChange}type="text" placeholder="linkdin" name="linkdin" defaultValue={resume.linkedin} />
+    </div>
+    <div className="form-group">
+  
+    <input className="form-control" onChange={this.handleChange}type="text" placeholder="github" name="github" defaultValue={resume.github} />
     </div>
   {this.renderExperienceInput().map((experience) => {
       return experience
   }
 )}
 
-{this.renderSkillsInput().map((skills) => {
+{this.renderProjectsInput().map((skills) => {
     return skills
 }
 )}

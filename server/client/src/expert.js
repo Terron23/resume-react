@@ -16,7 +16,7 @@ class Expert extends Component {
           <div className="company"><a href={this.props.item.companyUrL}>{this.props.item.company}</a></div>
       </div>
       <div className="details">
-         <p> {this.props.item.details}</p>
+         <p> {this.props.item.description}</p>
       </div>
   </div>)
 
